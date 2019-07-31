@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// 引入elementUI
+import './assets/css/reset.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

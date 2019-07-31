@@ -3,8 +3,7 @@
     <el-input v-model="inputData" placeholder="请输入待办事项" type=""></el-input>
     {{inputData}}
     <el-button @click="handleAddClick()">添加待办</el-button>
-    
-    <p>待办事项</p>
+    <p class="text-24">待办事项</p>
     <ul>
       <li v-for="(item, index) in waitList" :key="index">{{item}}<el-button @click="handleDeleteClick(index)">待办已完成</el-button></li>
     </ul>
@@ -40,7 +39,7 @@ export default {
       this.waitList.splice(index, 1)
       this.completeList.push(tmp)
     },
-    handleReClick (index){
+    handleReClick (index) {
       let tmp = this.completeList[index]
       this.completeList.pop()
       this.waitList.push(tmp)
