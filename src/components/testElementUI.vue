@@ -5,13 +5,17 @@
     <el-button @click="handleAddClick()">添加待办</el-button>
     <p class="text-24">待办事项</p>
     <ul>
-      <li v-for="(item, index) in waitList" :key="index">{{item}}<el-button @click="handleDeleteClick(index)">待办已完成</el-button></li>
+      <li v-for="(item, index) in waitList" :key="index" v-if="!item.bol">{{item.title}}
+        <el-checkbox v-model="item.bol">待办未完成</el-checkbox>
+      </li>
+    </ul>
+    <p class="text-24">完成事项</p>
+    <ul>
+      <li v-for="(item, index) in waitList" :key="index" v-if="item.bol">{{item.title}}
+        <el-checkbox v-model="item.bol">待办已完成</el-checkbox>
+      </li>
     </ul>
     <hr>
-    <p>完成事项</p>
-    <ul>
-      <li v-for="(item, index) in completeList" :key="index">{{item}}<el-button @click="handleReClick(index)">待办未完成</el-button></li>
-    </ul>
   </div>
 </template>
 
@@ -20,7 +24,7 @@ export default {
   data () {
     return {
       waitList: [],
-      completeList: [],
+      // completeList: [],
       inputData: '',
       index: 2,
       temp: []
@@ -29,17 +33,20 @@ export default {
   methods: {
     handleAddClick () {
       if (this.inputData) {
-        this.waitList.push(this.inputData)
+        this.waitList.push({
+          title: this.inputData,
+          bol: false
+        })
+        console.log(this.waitList)
         this.inputData = ''
       }
     },
-    handleDeleteClick (index) {
+    completed (index) {
       console.log(index)
-      let tmp = this.waitList[index]
-      this.waitList.splice(index, 1)
-      this.completeList.push(tmp)
+      this.waitList[index].bol = !this.waitList[index].bol
+      console.log(111)
     },
-    handleReClick (index) {
+    unCompleted (index) {
       let tmp = this.completeList[index]
       this.completeList.pop()
       this.waitList.push(tmp)
