@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import "./assets/css/utilities.scss";
+// 引入工具类
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -7,9 +7,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 引入elementUI
 import './assets/css/reset.css'
+// 引入重置css
+// import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+// Vue.prototype.$ajax = axios
+// Vue.use(axios)
 
 /* eslint-disable no-new */
 new Vue({
