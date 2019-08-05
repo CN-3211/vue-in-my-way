@@ -24,6 +24,8 @@ export default {
       axios.get('api/article/?format=json').then(res => {
         if (res.status === 200) {
           this.list = res.data
+        } else {
+          this.list = '又挂了'
         }
       })
     }
