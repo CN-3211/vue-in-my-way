@@ -9,9 +9,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/reset.css'
 // 引入重置css
 // import axios from 'axios'
+import echarts from 'echarts/lib/echarts'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(echarts)
 // Vue.prototype.$ajax = axios
 // Vue.use(axios)
 
